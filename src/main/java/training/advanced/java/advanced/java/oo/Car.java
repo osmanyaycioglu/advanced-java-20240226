@@ -1,9 +1,10 @@
 package training.advanced.java.advanced.java.oo;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-
-public class Car {
+@EqualsAndHashCode
+public class Car implements Comparable<Car> {
     private String name;
     private String model;
     private String color;
@@ -21,4 +22,9 @@ public class Car {
     public void turn(int metre){
     }
 
+
+    @Override
+    public int compareTo(final Car o) {
+        return o.name.compareTo(name);
+    }
 }
