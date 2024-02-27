@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class PropertyEngine {
 
-    public Object readProperties(Object objectParam) throws Exception {
+    public <T> T readProperties(T objectParam) throws Exception {
         Class<?>     classLoc        = objectParam.getClass();
         PropertyFile propertyFileLoc = classLoc.getAnnotation(PropertyFile.class);
         if (propertyFileLoc != null) {

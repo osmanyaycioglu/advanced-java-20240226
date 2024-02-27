@@ -17,8 +17,8 @@ public class ApplicationProps {
     public static void main(String[] args) {
         PropertyEngine propertyEngineLoc = new PropertyEngine();
         try {
-            ApplicationProps applicationPropsLoc = (ApplicationProps) propertyEngineLoc.readProperties(new ApplicationProps());
-            MyProperties myPropertiesLoc = (MyProperties) propertyEngineLoc.readProperties(new MyProperties());
+            ApplicationProps applicationPropsLoc =  propertyEngineLoc.readProperties(new ApplicationProps());
+            MyProperties myPropertiesLoc = propertyEngineLoc.readProperties(new MyProperties());
             System.out.println(applicationPropsLoc);
             System.out.println(myPropertiesLoc);
         } catch (Exception eParam) {
