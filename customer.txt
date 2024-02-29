@@ -1,0 +1,4 @@
+osman,yaycıoğlu,54,200,90
+nil,alaz,45,170,80
+ali,merkes,35,190,100
+mehmet,dağ,28,180,95

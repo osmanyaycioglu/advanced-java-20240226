@@ -1,11 +1,13 @@
 package training.advanced.java.advanced.java.streams;
 
+import training.advanced.java.advanced.java.annotations.Customer;
+import training.advanced.java.advanced.java.oo.Car;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
-public class StreamMain1 {
+public class StreamMain2 {
     public static void main(String[] args) {
         List<String> stringsLoc = Arrays.asList("osman",
                                                 "ali",
@@ -14,12 +16,13 @@ public class StreamMain1 {
                                                 "ayşe");
         List<String> result1 = new ArrayList<>();
         stringsLoc.stream()
-                  .skip(2)
-                  .limit(4)
                   .distinct()
-                  .peek(s -> result1.add(s))
-                  .filter(s -> s.length() > 2)
-                  .filter(s -> s.contains("a"))
+                  .map(s -> Customer.builder()
+                                    .withNameParam(s)
+                                    .build())
+                  .filter(c -> c.getName()
+                                .length() > 2)
+                  .filter(s -> s.getSurname() == null)
                   .forEach(System.out::println);
 
         System.out.println("-------------");
