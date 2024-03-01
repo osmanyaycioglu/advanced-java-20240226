@@ -1,14 +1,21 @@
 package training.advanced.java.advanced.java.annotations;
 
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Generated;
 import training.advanced.java.advanced.java.enums.EGender;
 
 
 @Data
+@Entity
 public class Customer {
-    private String name;
-    private String surname;
+    @Id
+    @GeneratedValue
+    private Long    custId;
+    // @Column(name = "isim")
+    private String  name;
+    private String  surname;
     private EGender gender = EGender.FEMALE;
     private Integer age;
     private Integer height;
@@ -37,16 +44,16 @@ public class Customer {
         Customer customerLoc = new Customer();
         customerLoc.setName("osman");
         customerLoc.setSurname("yaycıoğlu");
-        if (args != null && args.length == 1){
+        if (args != null && args.length == 1) {
             System.out.println("deneme");
         }
         customerLoc.setGender(EGender.MALE);
 
         Customer customerLoc2 = Customer.builder()
-                                       .withNameParam("osman")
-                                       .withSurnameParam("yaycıoülu")
-                                       .withGenderParam(EGender.MALE)
-                                       .build();
+                                        .withNameParam("osman")
+                                        .withSurnameParam("yaycıoülu")
+                                        .withGenderParam(EGender.MALE)
+                                        .build();
 
     }
 }
